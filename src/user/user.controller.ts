@@ -14,6 +14,7 @@ import {
 import { UserService } from './user.service';
 import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 import { UserDecorator } from 'src/common/decorators/user.decorator';
+import { User } from './schemas/user.schema';
 
 @Controller('user')
 @UseInterceptors(SuccessInterceptor)

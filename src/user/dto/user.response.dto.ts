@@ -6,6 +6,7 @@ export class UserResponseDto extends PickType(User, [
     'email',
     'name',
     'nickname',
+    'posts',
 ] as const) {
     @IsString()
     id: string;

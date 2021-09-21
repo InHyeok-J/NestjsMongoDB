@@ -1,4 +1,3 @@
-import { ConfigService } from '@nestjs/config';
 import { UserRequestDto } from './dto/user.request.dto';
 import {
     Injectable,
@@ -10,10 +9,7 @@ import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
-    constructor(
-        private userRepository: UserRepository,
-        private readonly ConfigService: ConfigService,
-    ) {}
+    constructor(private userRepository: UserRepository) {}
 
     async signUp(body: UserRequestDto) {
         const { email, name, nickname, password } = body;
@@ -40,7 +36,6 @@ export class UserService {
     }
 
     async userList() {
-        console.log(this.ConfigService.get('JWT_SECRET'));
         const UserList = await this.userRepository.findAll();
         console.log(UserList[0]);
 
